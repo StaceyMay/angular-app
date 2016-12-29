@@ -1,16 +1,28 @@
-<h1> Angular!! </h1>
+<h1> To Do List:</h1>
 
 <div ng-app="app">
   <div ng-controller="pageCtrl">
-  <ul>
+<!--   <ul>
      <li>{{ one }} </li>
      <li>{{ two }} </li>
      <li>{{ three }} </li>
    </ul>
   <br/>
-  <div>
-  Input Task:
-  <input ng-model="three">  
+</div> -->
+
+<h4> Total number of chores left: {{choreCount()}}</h4>
+
+  <div id="chores" ng-repeat="chore in chores track by $index" >
+     <li ng-class="{'strike': !chore.notCompleted}" ng-click="choreCompleted(chore)" >
+       Chore: {{ chore.text}}</li>
+       <br/>
+      <button ng-click="remove(chore)"> Delete Chore </button> 
+      <br/>
   </div>
+
+<h2> Add Your Own Chore: </h2>
+
+    Text: <input ng-model="newChoreText"> </br>
+    <button ng-click="addChore(newChoreText)"> Add Chore </button>
   </div>
 </div>
